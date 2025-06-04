@@ -10,12 +10,12 @@ DECLARE
   new_user_id INTEGER;
 BEGIN
   -- Insert a User
-  INSERT INTO users(username, email, password_hash)
+  INSERT INTO app_user(username, email, password_hash)
   VALUES (new_user_name, new_user_email, new_user_password);
 
   -- Set user role
-  SELECT id INTO new_user_id FROM users WHERE username = new_user_name;
-  INSERT INTO user_roles(user_id, role_id)
+  SELECT id INTO new_user_id FROM app_user WHERE username = new_user_name;
+  INSERT INTO user_role(user_id, role_id)
   VALUES (new_user_id, new_role_id);
 END;
 $$;
